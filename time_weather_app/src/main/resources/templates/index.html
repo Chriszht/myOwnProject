@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气和时间查询</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>天气和时间查询</h1>
+    <form th:action="@{/search}" method="post">
+        <div class="form-group">
+            <label for="location">请输入地点:</label>
+            <input type="text" id="location" name="location" required
+                   th:value="${locationDto?.location}" placeholder="例如: 北京">
+        </div>
+        <button type="submit">查询</button>
+    </form>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

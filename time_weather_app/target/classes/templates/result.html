@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询结果</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="'地点: ' + ${location}">地点</h1>
+
+    <div class="result-section">
+        <h2>时间信息</h2>
+        <p><strong>时区:</strong> <span th:text="${time.timezone}"></span></p>
+        <p><strong>当前时间:</strong> <span th:text="${time.datetime}"></span></p>
+        <p><strong>星期:</strong> <span th:text="${time.dayOfWeek}"></span></p>
+    </div>
+
+    <div class="result-section">
+        <h2>天气信息</h2>
+        <div class="weather-main">
+            <img th:src="'http://openweathermap.org/img/wn/' + ${weather.icon} + '@2x.png'"
+                 alt="天气图标" class="weather-icon">
+            <span class="temperature" th:text="${weather.temperature} + '°C'"></span>
+        </div>
+        <p><strong>体感温度:</strong> <span th:text="${weather.feelsLike} + '°C'"></span></p>
+        <p><strong>天气状况:</strong> <span th:text="${weather.description}"></span></p>
+        <p><strong>湿度:</strong> <span th:text="${weather.humidity} + '%'"></span></p>
+        <p><strong>风速:</strong> <span th:text="${weather.windSpeed} + ' m/s'"></span></p>
+    </div>
+
+    <a href="/" class="back-link">返回查询</a>
+</div>
+</body>
+</html>
